@@ -6,6 +6,13 @@
 
     $: deepLink = getDeepLink(inputText);
 
+    $: {
+        if (inputText) {
+            navigator.clipboard.writeText(deepLink);
+            toast.success('Copied!');
+        }
+    }
+
     /**
      * Returns a deep link to the email based on the network response.
      * @param response - The network response.
