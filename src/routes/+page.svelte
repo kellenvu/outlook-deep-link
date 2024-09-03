@@ -1,7 +1,8 @@
 <script lang="ts">
+	import toast, { Toaster } from 'svelte-french-toast';
+
     let inputText: string = "";
     let deepLink: string = "";
-    let showToast = false;
 
     $: deepLink = getDeepLink(inputText);
 
@@ -21,8 +22,7 @@
     /** Called when the Copy button is clicked. */
     function copyToClipboard() {
         navigator.clipboard.writeText(deepLink);
-        showToast = true;
-        setTimeout(() => showToast = false, 2000);  // Hide the toast after 2 seconds
+        toast.success('Copied!');
     }
 </script>
 
@@ -47,14 +47,6 @@
         <button class="btn btn-primary" on:click={copyToClipboard}>Copy</button>
     </div>
 
-    {#if showToast}
-        <div class="toast show position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
-            <div class="toast-body">
-                Copied!
-            </div>
-        </div>
-    {/if}
-
     <h2 class="h4 mt-5">How to Use This App</h2>
 
     <ol>
@@ -67,5 +59,7 @@
         <li>Copy and paste the entire response into the text input above.</li>
         <li>The app automatically generates a deep link to the email, which you can copy/paste elsewhere.</li>
     </ol>
+
+    <Toaster />
 </div>
 
