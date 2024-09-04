@@ -1,5 +1,6 @@
 <script lang="ts">
 	import toast, { Toaster } from 'svelte-french-toast';
+    import { base } from '$app/paths';
 
     let inputText: string = "";
     let deepLink: string = "";
@@ -69,9 +70,9 @@
 
     <h2 class="mt-4">What Is a Deep Link?</h2>
 
-    <p>A <b>deep link</b> is a hyperlink that directs a user to a specific location within a website rather than the landing page. For example, a deep link to an Outlook email would take you to a specific email in your Outlook, rather than just opening the inbox.</p>
+    <p>A <b>deep link</b> is a hyperlink that directs you to a specific location within a website, instead of the landing page. For example, a deep link to an Outlook email will take you to a specific email, rather than just opening the inbox.</p>
 
-    <p>Deep links are useful if you want to save a link to a specific email, whether you're adding it to your personal calendar, a document, or any personal reference.</p>
+    <p>Email deep links are useful if you want to save a link to a specific email—for example, if you want to add the link to your personal calendar.</p>
 
     <p>Outlook doesn't natively support creating deep links to emails (unless you use a <a href="https://www.reddit.com/r/Office365/comments/sdhels/quick_retrieve_outlook_deeplinks/">workaround</a> with the To Do app). This app provides an alternative solution.</p>
 
@@ -88,7 +89,7 @@
         <li>The app automatically generates a deep link to the email, which you can copy/paste elsewhere.</li>
     </ol>
 
-    <img src="/assets/screenshot.png" alt="Screenshot" class="mt-4 img-fluid" style="max-width: 100%; max-width: 800px;" />
+    <img src="{base}/assets/screenshot.png" alt="Screenshot" class="mt-4 img-fluid" style="max-width: 100%; max-width: 800px;" />
 
     <Toaster />
 
